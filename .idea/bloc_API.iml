@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/geolocator_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bloc_api/windows/flutter/ephemeral/.plugin_symlinks/firebase_auth/example/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
