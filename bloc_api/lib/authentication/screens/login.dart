@@ -1,6 +1,8 @@
+import 'package:bloc_api/authentication/bloc/auth_bloc.dart';
 import 'package:bloc_api/authentication/methods/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -185,8 +187,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Buttons.Google,
                                 text: "Sign in",
                                 onPressed: () async {
-                                  await signInWithGoogle();
-                                  print(FirebaseAuth.instance.currentUser!);
+                                  context
+                                      .read<AuthBloc>()
+                                      .add(AuthEventLogin());
                                 },
                               ),
                             ),

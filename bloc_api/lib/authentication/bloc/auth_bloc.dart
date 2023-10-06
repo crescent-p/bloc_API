@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:bloc_api/authentication/methods/google_sign_in.dart';
 import 'package:bloc_api/authentication/models/user.dart';
@@ -9,14 +11,24 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthInitial(isLoading: true)) {
     on<AuthEventLogin>((event, emit) async {
-     UserCredential cred = await signInWithGoogle();
-     MyUser user = MyUser.fromFirebaseUser(cred.user!);
+      UserCredential cred = await signInWithGoogle();
 
-     emit(AuthSuccess(user, isLoading: false));
+      if (cred == null) {
+        emit(AuthError('Error logging in', isLoading: false));
+        return;
+      } else {
+        MyUser user = MyUser.fromFirebaseUser(cred.user!);
+        emit(AuthSuccess(user, isLoading: false));
+      }
     });
 
     on<AuthEventLogout>((event, emit) async {
-      await FirebaseAuth.instance.signOut();
+      try {
+        await FirebaseAuth.instance.signOut();
+      } catch (e) {
+        log(e.toString() as num);
+      }
+
       emit(const AuthInitial(isLoading: false));
     });
   }
