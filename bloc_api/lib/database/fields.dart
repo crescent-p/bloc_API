@@ -2,7 +2,7 @@ class NoteFields {
   static final List<String> values = [
     /// Add all fields
     /// 
-    id,timeDate, nitrogen, phosphorus, potassium, soilMoisture, timeDateList
+    id, timeDate, nitrogen, phosphorus, potassium, soilMoisture, timeDateList
   ];
   static const String id = 'id';
   static const String timeDate = 'timeDate';

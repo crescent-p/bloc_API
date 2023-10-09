@@ -73,6 +73,7 @@ class _ControlState extends State<Control> {
                           showSecondSelector: true,
                           context: context,
                           value: _time,
+                          blurredBackground: true,
                           minuteInterval: TimePickerInterval.FIVE,
                           // Optional onChange to receive value as DateTime
                           onChangeDateTime: (DateTime dateTime) {

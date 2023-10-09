@@ -25,14 +25,14 @@ class DatabaseMethods {
   Future _createDB(Database db, int version) async {
     await db.execute('''
 CREATE TABLE "data" (
-  "id"	INTEGER NOT NULL UNIQUE,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	${NoteFields.timeDate}	TEXT,
-	${NoteFields.nitrogen}	REAL,
-	${NoteFields.phosphorus}	REAL,
-	${NoteFields.potassium}	REAL,
-	${NoteFields.soilMoisture}	REAL,
-	${NoteFields.timeDateList}	TEXT
+	"timeDate"	TEXT,
+	"nitrogen"	REAL,
+	"phosphorus"	REAL,
+	"potassium"	REAL,
+	"soilMoisture"	REAL,
+	"timeDateList"	TEXT,
+	"id"	INTEGER NOT NULL UNIQUE,
+	PRIMARY KEY("id" AUTOINCREMENT)
 );
 ''');
   }

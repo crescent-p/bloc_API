@@ -1,6 +1,8 @@
 import 'package:bloc_api/authentication/bloc/auth_bloc.dart';
 import 'package:bloc_api/consts/colors.dart';
 import 'package:bloc_api/home/screen/homeScreenItems.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -16,6 +18,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final PageController pageController = PageController();
   int _page = 0;
+
+  //Authentication
+  final User? user =  FirebaseAuth.instance.currentUser;
 
   void navigationTapped(int page) {
     pageController.jumpToPage(page);
