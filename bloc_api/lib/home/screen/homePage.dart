@@ -3,9 +3,9 @@ import 'package:bloc_api/consts/colors.dart';
 import 'package:bloc_api/home/screen/homeScreenItems.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,8 +19,15 @@ class _HomePageState extends State<HomePage> {
   final PageController pageController = PageController();
   int _page = 0;
 
+  //Storage
+  FirebaseStorage storage = FirebaseStorage.instance;
   //Authentication
-  final User? user =  FirebaseAuth.instance.currentUser;
+  final User? user = FirebaseAuth.instance.currentUser;
+  void initializeDatabase() async {
+    if (user != null) {
+      //final result = storage..child(user!.uid).child("profile");
+    }
+  }
 
   void navigationTapped(int page) {
     pageController.jumpToPage(page);
