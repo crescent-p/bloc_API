@@ -31,5 +31,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       emit(const AuthInitial(isLoading: false));
     });
+    on<AuthEventInitialize>((event, emit) {
+      if (FirebaseAuth.instance.currentUser != null) {
+        MyUser user =
+            MyUser.fromFirebaseUser(FirebaseAuth.instance.currentUser!);
+        emit(AuthSuccess(user, isLoading: false));
+      } else {
+        emit(const AuthInitial(isLoading: false));
+      }
+    });
   }
 }
