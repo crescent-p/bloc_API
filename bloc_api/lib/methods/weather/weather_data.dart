@@ -2,33 +2,34 @@ import 'dart:convert';
 
 import 'package:bloc_api/consts/keys.dart';
 import 'package:bloc_api/methods/location/location_methods.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherData {
   String? cityName;
-  double? mintemp;
-  double? maxtemp;
-  bool? dayRain;
-  bool? nightRain;
-  String? description;
+  double? maxTemp;
   String? main;
+  String? description;
   String? icon;
-  int? severity;
+  int? rainIntenstiy;
   String? locationKey;
   double? latitude;
   double? longitude;
 
   WeatherData(
-      {this.cityName, this.mintemp, this.maxtemp, this.main, this.icon, this.dayRain, this.nightRain, this.description, this.severity});
+      {this.description,
+      this.rainIntenstiy,
+      this.maxTemp,
+      this.cityName,
+      this.icon});
 
   Location location = Location();
   factory WeatherData.fromJson(Map<String, dynamic> json) {
     return WeatherData(
-      cityName: json['name'],
-      mintemp: json['main']['temp'].toDouble(),
-      main: json['weather'][0]['main'],
-      icon: json['weather'][0]['icon'],
-      // rainIntenstiy: if()
+      // cityName: json['DailyForecasts'][0]["Temperature"]["Maximum"].toDouble().toString(),
+      maxTemp: json['DailyForecasts'][0]["Temperature"]["Maximum"]["Value"].toDouble(),
+      rainIntenstiy: json['Headline']["Severity"],
+      description: json['Headline']["Text"],
     );
   }
 
@@ -50,25 +51,14 @@ class WeatherData {
     } else {
       print('Permission not granted');
     }
-    getLocationKey(latitude!, longitude!);
-    //await getLocationKey(latitude!, longitude!);
+
+    await getLocationKey(latitude!, longitude!);
 
     String apiUrl =
-        'http://dataservice.accuweather.com/forecasts/v1/daily/1day/$locationKey/forecasts/v1/daily/1day/2875590?apikey=$apiKeyForAccuWeather&language=en-us&details=false&metric=0';
+        'http://dataservice.accuweather.com/forecasts/v1/daily/1day/$locationKey?apikey=$apiKeyForAccuWeather&language=en-us&details=false&metric=false';
     http.Response response = await http.get(Uri.parse(apiUrl));
     Map<String, dynamic> data = await jsonDecode(response.body);
-    WeatherData weatherData = WeatherData(
-        mintemp: data["DailyForecasts"][0]["Temperature"]["Minimum"]["Value"]
-            .toDouble(),
-        maxtemp: data["DailyForecasts"][0]["Temperature"]["Maximum"]["Value"]
-            .toDouble(),
-        main: data["DailyForecasts"][0]["Day"]["IconPhrase"],
-        icon: data["DailyForecasts"][0]["Day"]["Icon"].toString(),
-        dayRain: data["DailyForecasts"][0]["Day"]["HasPrecipitation"],
-        nightRain: data["DailyForecasts"][0]["Night"]["HasPrecipitation"],
-        description: data["Headline"]["Text"],
-        severity: data["Headline"]["Severity"]);
-
-    return weatherData;
+    print(data);
+    return WeatherData.fromJson(data);
   }
 }

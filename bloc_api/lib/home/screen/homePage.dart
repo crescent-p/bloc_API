@@ -19,15 +19,8 @@ class _HomePageState extends State<HomePage> {
   final PageController pageController = PageController();
   int _page = 0;
 
-  //Storage
-  FirebaseStorage storage = FirebaseStorage.instance;
   //Authentication
   final User? user = FirebaseAuth.instance.currentUser;
-  void initializeDatabase() async {
-    if (user != null) {
-      //final result = storage..child(user!.uid).child("profile");
-    }
-  }
 
   void navigationTapped(int page) {
     pageController.jumpToPage(page);
@@ -85,7 +78,7 @@ class _HomePageState extends State<HomePage> {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.home,
+                  Icons.construction_outlined,
                   color: (_page == 0) ? primaryColor : secondaryColor,
                 ),
                 label: '',
@@ -93,14 +86,14 @@ class _HomePageState extends State<HomePage> {
               ),
               BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.search,
+                    Icons.chat,
                     color: (_page == 1) ? primaryColor : secondaryColor,
                   ),
                   label: '',
                   backgroundColor: primaryColor),
               BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.add_circle,
+                    Icons.person,
                     color: (_page == 2) ? primaryColor : secondaryColor,
                   ),
                   label: '',

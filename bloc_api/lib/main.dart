@@ -3,10 +3,10 @@ import 'package:bloc_api/authentication/bloc/auth_bloc.dart';
 import 'package:bloc_api/authentication/screens/login.dart';
 import 'package:bloc_api/firebase_options.dart';
 import 'package:bloc_api/home/screen/homePage.dart';
+import 'package:bloc_api/shared_preferences/shared.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   // await dotenv.load();
@@ -15,7 +15,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  await UserSimplePreferences.init();
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
